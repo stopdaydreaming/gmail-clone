@@ -1,0 +1,128 @@
+/* CSS Master file */
+body {
+  margin-top: 50px;
+  background-color: #FAFAED;
+}
+
+.nav-tabs .glyphicon:not(.no-margin) {
+  margin-right: 10px;
+}
+.nav-pills>li.compose>a, .nav-pills>li.compose>a:focus, .nav-pills>li.compose>a:hover {
+    color: #FCFCF4;
+    background-color: #DF2127;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.nav-pills>li.inbox>a, .nav-pills>li.inbox>a:focus, .nav-pills>li.inbox>a:hover {
+    color: #FCFCF4;
+    background-color: #333333;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+.name {
+  min-width: 150px;
+  display: inline-block;
+}
+.text-muted{
+  font-size: 11px;
+}
+.tab-pane .list-group-item:first-child {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.tab-pane .list-group-item:last-child {
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.tab-pane .list-group .checkbox {
+  display: inline-block;
+  margin: 0px;
+}
+
+.tab-pane .list-group input[type="checkbox"] {
+  margin-top: 2px;
+}
+
+.tab-pane .list-group .glyphicon {
+  margin-right: 5px;
+}
+
+.tab-pane .list-group .glyphicon:hover {
+  color: #F3F3F3;
+}
+
+a.list-group-item.read {
+  color: #222;
+  background-color: #F3F3F3;
+}
+
+hr {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.nav-pills>li>a {
+  padding: 5px 10px;
+}
+
+/* Inbox Badge styles based on Bootstrap */
+.badge {
+  display: inline-block;
+  padding: .25em .4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25rem
+}
+
+.btn .badge {
+  position: relative;
+  top: -1px
+}
+
+.badge-pill {
+  padding-right: .6em;
+  padding-left: .6em;
+}
+.badge-light {
+  color: #212529;
+  background-color: #F8F9FA;
+}
+
+.badge-light[href]:focus, .badge-light[href]:hover {
+  color: #212529;
+  text-decoration: none;
+  background-color: #DAE0E5;
+}
+
+.btn-group>.btn+.dropdown-toggle {
+    padding-bottom: 11px;
+}
+
+/* animations */
+.animate-show-hide.ng-hide {
+  opacity: 0;
+}
+
+.animate-show-hide.ng-hide-add,
+.animate-show-hide.ng-hide-remove {
+  transition: all linear 0.5s;
+}
+
+.check-element {
+  border: 1px solid black;
+  opacity: 1;
+  padding: 10px;
+}

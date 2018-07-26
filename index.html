@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+  <meta charset="utf-8">
+  <title>SalesLoft Gmail Clone</title>
+
+  <!-- styles -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/master.css" rel="stylesheet">
+
+  <!-- javascript -->
+  <script>
+    document.write("<base href=\"" + document.location + "\" />");
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+  <script src="assets/js/app.js"></script>
+  <!-- <script src="assets/js/protractor.js"></script> -->
+
+</head>
+
+<body ng-controller="EmailCtrl">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-3 col-md-2">
+        <div class="">
+          <a href="https://mail.google.com"><img src="assets/img/google-logo.png" alt="google logo" width="90%"></a>
+        </div>
+      </div>
+      <div class="col-sm-9 col-md-10">
+        <!-- Split button -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-default">
+            <div class="checkbox" style="margin: 0;">
+              <label>
+                <!-- <input type="checkbox" id="allchecked" name="allchecked" ng-change="checkAll()"> -->
+              </label>
+            </div>
+          </button>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">All</a></li>
+            <li><a href="#">None</a></li>
+            <li><a href="#">Read</a></li>
+            <li><a href="#">Unread</a></li>
+            <li><a href="#">Starred</a></li>
+            <li><a href="#">Unstarred</a></li>
+          </ul>
+        </div>
+        <button type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh">
+          &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;&nbsp;</button>
+
+        <!-- Single button -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            More <span class="caret"></span>
+          </button>
+          <!-- <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Mark all as read</a></li>
+            <li class="divider"></li>
+            <li class="text-center"><small class="text-muted">Select messages to see more actions</small></li>
+          </ul> -->
+        </div>
+        <div class="check-element animate-show-hide" ng-show="checked">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Spam </span>
+          </button>
+        </div>
+        <div class="pull-right">
+          <button type="button" class="btn btn-default" data-toggle="tooltip" title="Tag">
+            &nbsp;<span class="glyphicon glyphicon-cog"></span>&nbsp;
+          </button>
+          <button type="button" class="btn btn-default" data-toggle="tooltip" title="Menu">
+            &nbsp;<span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;
+          </button>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-3 col-md-2">
+        <ul class="nav nav-pills nav-stacked">
+          <li class="compose"><a href="#">Compose</a></li>
+          <li class="inbox"><a href="#"><span class="badge badge-pill pull-right">10</span> Inbox </a></li>
+          <li><a href="#">Starred</a></li>
+          <li><a href="#">Important</a></li>
+          <li><a href="#">Sent Mail</a></li>
+          <li><a href="#"><span class="badge badge-pill pull-right">0</span><strong>Drafts</strong></a></li>
+        </ul>
+
+        <!-- test -->
+        <!-- <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow"><br />
+        <div class="check-element animate-show-hide" ng-show="checked">
+          I show up when your checkbox is checked.
+        </div> -->
+
+      </div>
+      <div class="col-sm-9 col-md-10" ng-controller="emailDetailViewCtrl as vm">
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="home">
+            <ul class="list-group">
+              <!-- email data -->
+                <li href="#" class="list-group-item" ng-repeat="email in emails" ng-click="vm.showDetailView($index)">
+                  <a href="#">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" id="checked" name="checked" ng-model="checked" aria-label="Toggle ngShow" />
+                    </label>
+                  </div>
+                  <span class="glyphicon glyphicon-star-empty"></span>
+                  <span class="name">{{email.sender}}</span>
+                  <span class="">{{email.subject | truncate:true:40}}</span>
+                  <span class="text-muted">{{email.body | removeHTMLTags | truncate:true:40:' ...' }}</span>
+                  <span class="badge badge-light">{{email.date | date : "d/m/y hh:mm" }}</span>
+                  <span class="badge badge-light">{{email.tags | removeHTMLTags}}</span>
+                </a>
+                <div class="email-details" ng-if="vm.isDetail">
+                  <p>{{email.subject}}</p>
+                </div>
+              </li>
+              <!-- email data ends -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
